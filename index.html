@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Plateforme d'apprentissage du code en profondeur. IA intégrée, gamification, parcours complet. 100% gratuit, 100% en français.">
+  <title>Devora — Apprenez à coder gratuitement</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/home.css">
+</head>
+<body>
+
+  <!-- NAVIGATION -->
+  <nav class="nav" id="navbar">
+    <div class="container nav-inner">
+      <a href="index.html" class="nav-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="7" fill="#FF5500"/>
+          <path d="M8 8h5.5a6.5 6.5 0 0 1 0 13H8V8z" fill="white"/>
+          <circle cx="18.5" cy="19.5" r="2.5" fill="white"/>
+        </svg>
+        <span class="nav-logo-text">Devora</span>
+      </a>
+      <ul class="nav-items">
+        <li><a href="#solutions" class="nav-item">Solutions</a></li>
+        <li><a href="#parcours"  class="nav-item">Parcours</a></li>
+        <li><a href="#langages"  class="nav-item">Langages</a></li>
+        <li><a href="#avis"      class="nav-item">Avis</a></li>
+        <li><a href="mentions-legales.html" class="nav-item">À propos</a></li>
+      </ul>
+      <div class="nav-buttons">
+        <a href="connexion.html"   class="btn btn-outline btn-sm">Se connecter</a>
+        <a href="inscription.html" class="btn btn-primary btn-sm">S'inscrire</a>
+      </div>
+      <button class="nav-hamburger" onclick="toggleMenu()" aria-label="Menu">
+        <svg id="icon-menu"  width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+        <svg id="icon-close" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" style="display:none"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+  </nav>
+
+  <!-- MENU MOBILE -->
+  <div class="mobile-menu" id="mobile-menu">
+    <ul>
+      <li><a href="#solutions" class="mobile-item" onclick="toggleMenu()">Solutions</a></li>
+      <li><a href="#parcours"  class="mobile-item" onclick="toggleMenu()">Parcours</a></li>
+      <li><a href="#langages"  class="mobile-item" onclick="toggleMenu()">Langages</a></li>
+      <li><a href="#avis"      class="mobile-item" onclick="toggleMenu()">Avis</a></li>
+    </ul>
+    <div class="mobile-buttons">
+      <a href="connexion.html"   class="btn btn-outline btn-full">Se connecter</a>
+      <a href="inscription.html" class="btn btn-primary btn-full">S'inscrire</a>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="container hero-content">
+      <div class="hero-badge fade-up">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        100% gratuit — 100% en français
+      </div>
+      <h1 class="hero-title fade-up-2">
+        Apprenez à coder.<br>
+        <span class="hero-accent">Vraiment.</span>
+      </h1>
+      <p class="hero-subtitle fade-up-3">
+        Les autres plateformes vont vite. Devora prend le temps de vraiment comprendre.
+        IA intégrée, gamification, et un parcours complet du HTML jusqu'à React.
+      </p>
+      <div class="hero-ctas fade-up-4">
+        <a href="inscription.html" class="btn btn-primary">
+          Commencer gratuitement
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <a href="#parcours" class="btn btn-outline">Voir les parcours</a>
+      </div>
+      <div class="hero-stats fade-up-4">
+        <div class="glass stat-card">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          <div><strong>12 000+</strong><span>Apprenants</span></div>
+        </div>
+        <div class="glass stat-card">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+          <div><strong>200+</strong><span>Cours</span></div>
+        </div>
+        <div class="glass stat-card">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          <div><strong>19</strong><span>Langages</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="hero-bg" aria-hidden="true">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+    </div>
+  </section>
+
+  <!-- SOLUTIONS -->
+  <section class="section" id="solutions">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Pourquoi Devora</span>
+        <h2 class="section-title" style="margin-top:12px">Une vraie différence</h2>
+        <p class="section-subtitle" style="margin-top:12px">Conçu pour ceux qui veulent comprendre, pas juste copier-coller.</p>
+      </div>
+      <div class="features-grid">
+        <div class="glass feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><path d="M9.5 2a2.5 2.5 0 1 1 5 0"/><path d="M7 7.5C5.343 7.5 4 8.843 4 10.5a3.5 3.5 0 0 0 2 3.157V20a2 2 0 0 0 2 2h8a2 2 0 0 0 2-2v-6.343A3.5 3.5 0 0 0 20 10.5C20 8.843 18.657 7.5 17 7.5"/></svg>
+          </div>
+          <h3 class="feature-title">Explications en profondeur</h3>
+          <p class="feature-desc">Chaque concept est expliqué simplement, puis en détail. Tu comprends pourquoi, pas seulement comment.</p>
+        </div>
+        <div class="glass feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <h3 class="feature-title">IA avec mémoire</h3>
+          <p class="feature-desc">L'IA Devora se souvient de tes conversations précédentes. Elle connaît ton niveau et ton parcours.</p>
+        </div>
+        <div class="glass feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+          </div>
+          <h3 class="feature-title">Gamification complète</h3>
+          <p class="feature-desc">Streak, XP, badges, leaderboard et mascotte animée. Apprendre devient une habitude agréable.</p>
+        </div>
+        <div class="glass feature-card">
+          <div class="feature-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <h3 class="feature-title">Parcours structuré</h3>
+          <p class="feature-desc">Progression séquentielle obligatoire. Impossible de sauter des étapes — chaque base est solide.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PARCOURS -->
+  <section class="section section-tinted" id="parcours">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Parcours</span>
+        <h2 class="section-title" style="margin-top:12px">Quel développeur veux-tu devenir ?</h2>
+        <p class="section-subtitle" style="margin-top:12px">Choisis ton objectif à l'inscription. Devora construit ton parcours sur mesure.</p>
+      </div>
+      <div class="parcours-grid">
+        <div class="glass parcours-card">
+          <div class="parcours-label" style="border-color:#FF5500;color:#FF5500">Frontend</div>
+          <p class="parcours-desc">Crée des interfaces web modernes et réactives.</p>
+          <div class="lang-badges">
+            <span class="lang-badge">HTML</span><span class="lang-badge">CSS</span><span class="lang-badge">JavaScript</span><span class="lang-badge">TypeScript</span><span class="lang-badge">React</span><span class="lang-badge">Next.js</span>
+          </div>
+          <a href="inscription.html" class="parcours-btn">Choisir ce parcours <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+        <div class="glass parcours-card">
+          <div class="parcours-label" style="border-color:#1A1A2E;color:#1A1A2E">Backend</div>
+          <p class="parcours-desc">Maîtrise les serveurs, bases de données et APIs.</p>
+          <div class="lang-badges">
+            <span class="lang-badge">Python</span><span class="lang-badge">Node.js</span><span class="lang-badge">SQL</span><span class="lang-badge">APIs</span><span class="lang-badge">Express.js</span><span class="lang-badge">Django</span>
+          </div>
+          <a href="inscription.html" class="parcours-btn">Choisir ce parcours <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+        <div class="glass parcours-card">
+          <div class="parcours-label" style="border-color:#FF5500;color:#FF5500">Fullstack</div>
+          <p class="parcours-desc">Développe des applications complètes de A à Z.</p>
+          <div class="lang-badges">
+            <span class="lang-badge">HTML</span><span class="lang-badge">CSS</span><span class="lang-badge">JS</span><span class="lang-badge">React</span><span class="lang-badge">Next.js</span><span class="lang-badge">Python</span><span class="lang-badge">SQL</span>
+          </div>
+          <a href="inscription.html" class="parcours-btn">Choisir ce parcours <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+        <div class="glass parcours-card">
+          <div class="parcours-label" style="border-color:#4B5563;color:#4B5563">Libre</div>
+          <p class="parcours-desc">Explore les langages et frameworks qui t'intéressent.</p>
+          <div class="lang-badges">
+            <span class="lang-badge">Ton choix</span>
+          </div>
+          <a href="inscription.html" class="parcours-btn">Choisir ce parcours <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ÉTAPES -->
+  <section class="section" id="langages">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Structure des cours</span>
+        <h2 class="section-title" style="margin-top:12px">Chaque cours, étape par étape</h2>
+        <p class="section-subtitle" style="margin-top:12px">Une progression pensée pour vraiment apprendre, pas pour aller vite.</p>
+      </div>
+      <div class="steps-row">
+        <div class="step-card"><span class="step-num">01</span><strong class="step-label">Explication simple</strong><p class="step-desc">Le concept présenté clairement.</p></div>
+        <div class="step-card"><span class="step-num">02</span><strong class="step-label">Explication avancée</strong><p class="step-desc">On va plus loin dans les détails.</p></div>
+        <div class="step-card"><span class="step-num">03</span><strong class="step-label">Exemple de code</strong><p class="step-desc">Voir le code en action.</p></div>
+        <div class="step-card"><span class="step-num">04</span><strong class="step-label">3 exercices</strong><p class="step-desc">Facile → Moyen → Difficile.</p></div>
+        <div class="step-card"><span class="step-num">05</span><strong class="step-label">Call to Action IA</strong><p class="step-desc">Pose tes questions à l'IA Devora.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- GAMIFICATION -->
+  <section class="section section-dark">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag" style="background:rgba(255,85,0,0.15)">Gamification</span>
+        <h2 class="section-title" style="margin-top:12px;color:#fff">Apprendre devient une habitude</h2>
+        <p class="section-subtitle" style="margin-top:12px;color:rgba(255,255,255,0.55)">Inspiré de Duolingo — sans les vies qui punissent.</p>
+      </div>
+      <div class="gamif-grid">
+        <div class="glass-dark gamif-card">
+          <div class="gamif-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg></div>
+          <strong class="gamif-label">Streak</strong>
+          <p class="gamif-desc">Jours consécutifs de connexion</p>
+        </div>
+        <div class="glass-dark gamif-card">
+          <div class="gamif-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <strong class="gamif-label">XP</strong>
+          <p class="gamif-desc">Points gagnés à chaque exercice</p>
+        </div>
+        <div class="glass-dark gamif-card">
+          <div class="gamif-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg></div>
+          <strong class="gamif-label">Badges</strong>
+          <p class="gamif-desc">Débloqués à chaque étape clé</p>
+        </div>
+        <div class="glass-dark gamif-card">
+          <div class="gamif-icon"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/></svg></div>
+          <strong class="gamif-label">Leaderboard</strong>
+          <p class="gamif-desc">Classe-toi parmi les apprenants</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVIS -->
+  <section class="section" id="avis">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-tag">Ils apprennent avec Devora</span>
+        <h2 class="section-title" style="margin-top:12px">Ce qu'en disent nos apprenants</h2>
+      </div>
+      <div class="reviews-grid">
+        <div class="glass review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"J'ai essayé Codecademy et FreeCodeCamp avant. Devora est la seule plateforme qui m'explique vraiment pourquoi ça marche, pas juste comment le faire."</p>
+          <div class="review-author">
+            <div class="review-avatar">S</div>
+            <div><strong>Sarah M.</strong><span>Apprenante Frontend</span></div>
+          </div>
+        </div>
+        <div class="glass review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"Le système de streak me pousse à ouvrir Devora tous les jours. J'ai plus progressé en 2 mois qu'en 1 an ailleurs."</p>
+          <div class="review-author">
+            <div class="review-avatar">K</div>
+            <div><strong>Karim B.</strong><span>Apprenant Fullstack</span></div>
+          </div>
+        </div>
+        <div class="glass review-card">
+          <div class="review-stars">★★★★★</div>
+          <p class="review-text">"L'IA qui se souvient de mes questions précédentes change tout. C'est comme avoir un prof disponible 24h/24."</p>
+          <div class="review-author">
+            <div class="review-avatar">L</div>
+            <div><strong>Léa T.</strong><span>Apprenante Backend</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA FINAL -->
+  <section class="cta-banner">
+    <div class="container cta-inner">
+      <h2 class="cta-title">Prêt à commencer ?</h2>
+      <p class="cta-subtitle">Rejoins des milliers d'apprenants. Aucune carte de crédit requise.</p>
+      <a href="inscription.html" class="btn" style="background:#fff;color:#FF5500;font-size:1.05rem;padding:15px 32px">
+        Créer mon compte gratuit
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+      </a>
+      <div class="cta-features">
+        <span>✓ 100% gratuit</span>
+        <span>✓ IA intégrée</span>
+        <span>✓ Aucun prérequis</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="container footer-inner">
+      <div class="footer-logo">
+        <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="#FF5500"/><path d="M8 8h5.5a6.5 6.5 0 0 1 0 13H8V8z" fill="white"/><circle cx="18.5" cy="19.5" r="2.5" fill="white"/></svg>
+        <span>Devora</span>
+      </div>
+      <nav class="footer-links">
+        <a href="mentions-legales.html">Mentions légales</a>
+        <a href="cgu.html">CGU</a>
+        <a href="confidentialite.html">Confidentialité</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+      <p class="footer-copy">© 2026 Devora — Tous droits réservés</p>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation scroll
+    window.addEventListener('scroll', () => {
+      document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 20)
+    })
+
+    // Menu hamburger
+    function toggleMenu() {
+      const menu = document.getElementById('mobile-menu')
+      const iconMenu  = document.getElementById('icon-menu')
+      const iconClose = document.getElementById('icon-close')
+      menu.classList.toggle('open')
+      iconMenu.style.display  = menu.classList.contains('open') ? 'none'  : 'block'
+      iconClose.style.display = menu.classList.contains('open') ? 'block' : 'none'
+    }
+  </script>
+
+</body>
+</html>

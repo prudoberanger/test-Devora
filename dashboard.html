@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tableau de bord — Devora</title>
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+</head>
+<body class="dash-body">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-header">
+      <a href="index.html" class="sidebar-logo">
+        <svg width="28" height="28" viewBox="0 0 28 28" fill="none">
+          <rect width="28" height="28" rx="7" fill="#FF5500"/>
+          <path d="M8 8h5.5a6.5 6.5 0 0 1 0 13H8V8z" fill="white"/>
+          <circle cx="18.5" cy="19.5" r="2.5" fill="white"/>
+        </svg>
+        <span class="sidebar-logo-text">Devora</span>
+      </a>
+      <button class="sidebar-toggle" onclick="toggleSidebar()" aria-label="Fermer">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+
+    <div class="sidebar-user">
+      <div class="sidebar-avatar" id="sb-avatar">P</div>
+      <div>
+        <strong class="sidebar-name" id="sb-name">Chargement...</strong>
+        <span class="sidebar-level" id="sb-level">Débutant</span>
+      </div>
+    </div>
+
+    <nav class="sidebar-nav">
+      <a href="dashboard.html" class="sidebar-link active">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/></svg>
+        Tableau de bord
+      </a>
+      <a href="langages.html" class="sidebar-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polyline points="16 18 22 12 16 6"/><polyline points="8 6 2 12 8 18"/></svg>
+        Mes cours
+      </a>
+      <a href="ia.html" class="sidebar-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+        IA Devora
+      </a>
+      <a href="dashboard.html#progression" class="sidebar-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/></svg>
+        Progression
+      </a>
+      <a href="leaderboard.html" class="sidebar-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+        Classement
+      </a>
+      <a href="profil.html" class="sidebar-link">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+        Mon profil
+      </a>
+    </nav>
+
+    <div class="sidebar-footer">
+      <button class="sidebar-link sidebar-logout" onclick="logout()">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M9 21H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h4"/><polyline points="16 17 21 12 16 7"/><line x1="21" y1="12" x2="9" y2="12"/></svg>
+        Déconnexion
+      </button>
+    </div>
+  </aside>
+
+  <!-- OVERLAY MOBILE -->
+  <div class="sidebar-overlay" id="sidebar-overlay" onclick="toggleSidebar()"></div>
+
+  <!-- CONTENU PRINCIPAL -->
+  <main class="dash-main">
+
+    <!-- Header mobile -->
+    <div class="dash-topbar">
+      <button class="sidebar-open-btn" onclick="toggleSidebar()">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <a href="index.html" class="dash-topbar-logo">
+        <svg width="24" height="24" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="#FF5500"/><path d="M8 8h5.5a6.5 6.5 0 0 1 0 13H8V8z" fill="white"/><circle cx="18.5" cy="19.5" r="2.5" fill="white"/></svg>
+        Devora
+      </a>
+      <a href="ia.html" class="btn btn-primary btn-sm">IA</a>
+    </div>
+
+    <div class="dash-content container">
+
+      <!-- Bienvenue -->
+      <div class="dash-welcome">
+        <div>
+          <h1 class="dash-title">Bienvenue, <span id="dash-prenom" class="text-orange">...</span> !</h1>
+          <p class="dash-subtitle" id="dash-motivation">Chaque ligne de code te rapproche de ton objectif.</p>
+        </div>
+        <a href="ia.html" class="btn btn-primary">Ouvrir l'IA Devora</a>
+      </div>
+
+      <!-- Stats -->
+      <div class="stats-grid">
+        <div class="glass stat-box">
+          <div class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><path d="M8.5 14.5A2.5 2.5 0 0 0 11 12c0-1.38-.5-2-1-3-1.072-2.143-.224-4.054 2-6 .5 2.5 2 4.9 4 6.5 2 1.6 3 3.5 3 5.5a7 7 0 1 1-14 0c0-1.153.433-2.294 1-3a2.5 2.5 0 0 0 2.5 2.5z"/></svg>
+          </div>
+          <div>
+            <strong class="stat-value" id="stat-streak">0</strong>
+            <span class="stat-name">Jours de streak</span>
+          </div>
+        </div>
+        <div class="glass stat-box">
+          <div class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg>
+          </div>
+          <div>
+            <strong class="stat-value" id="stat-xp">0</strong>
+            <span class="stat-name">XP total</span>
+          </div>
+        </div>
+        <div class="glass stat-box">
+          <div class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><path d="M6 9H4.5a2.5 2.5 0 0 1 0-5H6"/><path d="M18 9h1.5a2.5 2.5 0 0 0 0-5H18"/><path d="M4 22h16"/><path d="M18 2H6v7a6 6 0 0 0 12 0V2z"/></svg>
+          </div>
+          <div>
+            <strong class="stat-value" id="stat-badges">0</strong>
+            <span class="stat-name">Badges</span>
+          </div>
+        </div>
+        <div class="glass stat-box">
+          <div class="stat-icon">
+            <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#FF5500" stroke-width="2" stroke-linecap="round"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+          </div>
+          <div>
+            <strong class="stat-value" id="stat-cours">0</strong>
+            <span class="stat-name">Cours complétés</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Continuer -->
+      <div class="dash-section">
+        <h2 class="dash-section-title">Continuer</h2>
+        <div class="glass continue-card">
+          <div class="continue-info">
+            <span class="continue-tag">HTML — Module 1</span>
+            <strong class="continue-title">Qu'est-ce que le HTML ?</strong>
+            <div class="continue-progress">
+              <div class="progress-bar-thin"><div class="progress-bar-fill" style="width:20%"></div></div>
+              <span>20% du module</span>
+            </div>
+          </div>
+          <a href="cours.html" class="btn btn-primary">Continuer</a>
+        </div>
+      </div>
+
+      <!-- Mon parcours -->
+      <div class="dash-section" id="progression">
+        <h2 class="dash-section-title">Mon parcours</h2>
+        <div class="parcours-grid-dash">
+          <div class="glass parcours-dash-card">
+            <div class="parcours-dash-header">
+              <span class="parcours-dash-name">HTML</span>
+              <span class="parcours-dash-pct">7%</span>
+            </div>
+            <div class="progress-bar-thin"><div class="progress-bar-fill" style="width:7%"></div></div>
+            <span class="parcours-dash-detail">1 cours sur 16 complétés</span>
+          </div>
+          <div class="glass parcours-dash-card">
+            <div class="parcours-dash-header">
+              <span class="parcours-dash-name">CSS</span>
+              <span class="parcours-dash-pct">0%</span>
+            </div>
+            <div class="progress-bar-thin"><div class="progress-bar-fill" style="width:0%"></div></div>
+            <span class="parcours-dash-detail">Verrouillé — finir HTML d'abord</span>
+          </div>
+          <div class="glass parcours-dash-card">
+            <div class="parcours-dash-header">
+              <span class="parcours-dash-name">JavaScript</span>
+              <span class="parcours-dash-pct">0%</span>
+            </div>
+            <div class="progress-bar-thin"><div class="progress-bar-fill" style="width:0%"></div></div>
+            <span class="parcours-dash-detail">Verrouillé</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Objectif du jour -->
+      <div class="dash-section">
+        <h2 class="dash-section-title">Objectif du jour</h2>
+        <div class="glass objectif-card-dash">
+          <div class="objectif-info">
+            <strong>1 cours aujourd'hui</strong>
+            <span>0 / 1 complété</span>
+          </div>
+          <div class="progress-bar-thin" style="margin-top:12px"><div class="progress-bar-fill" style="width:0%"></div></div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <script src="js/supabase.js"></script>
+  <script>
+    const motivations = [
+      "Chaque ligne de code te rapproche de ton objectif.",
+      "La régularité bat le talent — continue !",
+      "Tu es meilleur qu'hier. C'est tout ce qui compte.",
+      "Le meilleur moment pour apprendre, c'est maintenant.",
+    ]
+
+    async function init() {
+      const user = await requireAuth()
+      if (!user) return
+
+      const profile = await getProfile(user.id)
+      if (!profile) return
+
+      // Afficher les infos
+      const prenom = profile.prenom || 'Apprenant'
+      document.getElementById('dash-prenom').textContent = prenom
+      document.getElementById('sb-name').textContent = prenom
+      document.getElementById('sb-avatar').textContent = prenom.charAt(0).toUpperCase()
+      document.getElementById('sb-level').textContent = profile.niveau || 'Débutant'
+      document.getElementById('stat-streak').textContent = profile.streak || 0
+      document.getElementById('stat-xp').textContent = profile.xp || 0
+      document.getElementById('dash-motivation').textContent = motivations[Math.floor(Math.random() * motivations.length)]
+
+      // Cours complétés
+      const { count } = await db.from('progression').select('*', { count: 'exact', head: true }).eq('user_id', user.id).eq('complete', true)
+      document.getElementById('stat-cours').textContent = count || 0
+
+      // Badges
+      const { count: badgeCount } = await db.from('badges').select('*', { count: 'exact', head: true }).eq('user_id', user.id)
+      document.getElementById('stat-badges').textContent = badgeCount || 0
+    }
+
+    async function logout() {
+      await db.auth.signOut()
+      window.location.href = 'index.html'
+    }
+
+    function toggleSidebar() {
+      const sidebar  = document.getElementById('sidebar')
+      const overlay  = document.getElementById('sidebar-overlay')
+      sidebar.classList.toggle('open')
+      overlay.classList.toggle('open')
+    }
+
+    init()
+  </script>
+</body>
+</html>
