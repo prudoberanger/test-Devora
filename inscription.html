@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>S'inscrire — Devora</title>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2/dist/umd/supabase.js"></script>
+<style>
+:root{--orange:#FF5500;--orange-h:#E64D00;--orange-l:#FFF0EB;--white:#fff;--g50:#F9FAFB;--g100:#F3F4F6;--g200:#E5E7EB;--g400:#9CA3AF;--g600:#4B5563;--g800:#1F2937;--black:#0A0A0A;--r8:8px;--r12:12px;--r16:16px;--tr:all .22s ease}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:Arial,Helvetica,sans-serif;min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:24px;background:var(--g50);color:var(--g800);-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+button{font-family:Arial,Helvetica,sans-serif;cursor:pointer;border:none;outline:none}
+.logo{display:flex;align-items:center;gap:10px;margin-bottom:32px;font-size:1.2rem;font-weight:800;color:var(--black)}
+.card{width:100%;max-width:440px;background:rgba(255,255,255,.85);backdrop-filter:blur(20px);-webkit-backdrop-filter:blur(20px);border:1px solid rgba(255,255,255,.6);box-shadow:0 8px 32px rgba(255,85,0,.09);border-radius:var(--r16);padding:40px 36px}
+.pb{height:4px;background:var(--g200);border-radius:2px;margin-bottom:8px}
+.pf{height:100%;background:var(--orange);border-radius:2px;transition:width .4s ease;width:0%}
+.pi{font-size:.78rem;color:var(--g400);font-weight:600;margin-bottom:24px;text-align:right}
+.tit{font-size:1.7rem;font-weight:800;color:var(--black);letter-spacing:-.02em;margin-bottom:8px}
+.sub{font-size:.93rem;color:var(--g600);margin-bottom:28px;line-height:1.5}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;font-size:1rem;font-weight:700;border-radius:var(--r8);transition:var(--tr);cursor:pointer;white-space:nowrap;font-family:Arial,Helvetica,sans-serif;width:100%}
+.bp{background:var(--orange);color:#fff;border:none}.bp:hover{background:var(--orange-h)}
+.bp:disabled{opacity:.6;cursor:not-allowed}
+.bo{background:transparent;color:var(--g800);border:1.5px solid var(--g200)}.bo:hover{border-color:var(--orange);color:var(--orange)}
+.fields{display:flex;flex-direction:column;gap:16px;margin-bottom:20px}
+.fg2{display:flex;flex-direction:column;gap:6px}
+.lbl{font-size:.9rem;font-weight:600;color:var(--g800)}
+.inp{padding:13px 16px;font-size:1rem;font-family:Arial,Helvetica,sans-serif;border:1.5px solid var(--g200);border-radius:var(--r8);background:#fff;color:var(--g800);transition:var(--tr);outline:none;width:100%}
+.inp:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(255,85,0,.12)}
+.inp::placeholder{color:var(--g400)}
+.alert{padding:12px 16px;border-radius:var(--r8);font-size:.88rem;font-weight:500;margin-bottom:16px}
+.ae{background:#FEF2F2;color:#991B1B;border:1px solid #FECACA}
+.as{background:#F0FDF4;color:#166534;border:1px solid #BBF7D0}
+.divider{display:flex;align-items:center;gap:12px;color:var(--g400);font-size:.85rem;margin:4px 0}
+.divider::before,.divider::after{content:'';flex:1;height:1px;background:var(--g200)}
+.back{display:block;width:100%;text-align:center;padding:10px;font-size:.88rem;color:var(--g600);cursor:pointer;background:none;border:none;font-family:Arial,Helvetica,sans-serif;margin-top:12px;transition:color .2s}
+.back:hover{color:var(--orange)}
+.foot{text-align:center;font-size:.88rem;color:var(--g600);margin-top:20px}
+.foot a{color:var(--orange);font-weight:700}
+.lcards{display:flex;flex-direction:column;gap:10px}
+.lcard{display:flex;align-items:center;gap:14px;padding:16px 20px;background:#fff;border:2px solid var(--g200);border-radius:var(--r12);cursor:pointer;text-align:left;transition:var(--tr);font-family:Arial,Helvetica,sans-serif;width:100%}
+.lcard:hover,.lcard.sel{border-color:var(--orange);background:var(--orange-l)}
+.lcard strong{display:block;font-size:.95rem;color:var(--black)}
+.lcard span{font-size:.82rem;color:var(--g600)}
+.lem{font-size:1.4rem}
+.ocards{display:flex;flex-direction:column;gap:10px}
+.ocard{display:flex;flex-direction:column;gap:4px;padding:14px 18px;background:#fff;border:2px solid var(--g200);border-radius:var(--r12);cursor:pointer;text-align:left;transition:var(--tr);font-family:Arial,Helvetica,sans-serif;width:100%}
+.ocard:hover,.ocard.sel{border-color:var(--orange);background:var(--orange-l)}
+.ocard strong{font-size:.95rem;color:var(--black)}
+.ocard span{font-size:.82rem;color:var(--g600)}
+.rg{display:flex;gap:16px}
+.ro{display:flex;align-items:center;gap:8px;cursor:pointer;font-size:.93rem;color:var(--g800)}
+.ro input{accent-color:var(--orange);width:16px;height:16px}
+.sico{width:64px;height:64px;background:var(--orange);color:#fff;font-size:1.8rem;font-weight:800;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 20px}
+.step{display:none}
+.step.active{display:block}
+.gg-btn{display:flex;align-items:center;justify-content:center;gap:8px;padding:13px 26px;font-size:1rem;font-weight:700;border-radius:var(--r8);border:1.5px solid var(--g200);background:#fff;color:var(--g800);width:100%;cursor:pointer;font-family:Arial,Helvetica,sans-serif;transition:var(--tr);margin-bottom:4px}
+.gg-btn:hover{border-color:var(--orange);color:var(--orange)}
+@media(max-width:480px){.card{padding:28px 20px}}
+</style>
+</head>
+<body>
+
+<a href="index.html" class="logo">
+  <svg width="28" height="28" viewBox="0 0 28 28" fill="none"><rect width="28" height="28" rx="7" fill="#FF5500"/><path d="M8 8h5.5a6.5 6.5 0 0 1 0 13H8V8z" fill="white"/><circle cx="18.5" cy="19.5" r="2.5" fill="white"/></svg>
+  Devora
+</a>
+
+<div class="card">
+  <div class="pb"><div class="pf" id="pf"></div></div>
+  <div class="pi" id="pi"></div>
+
+  <!-- ÉTAPE 0 — Choix méthode -->
+  <div class="step active" id="s0">
+    <h1 class="tit">Rejoins Devora</h1>
+    <p class="sub">Crée ton compte gratuitement en quelques secondes.</p>
+    <div id="a0"></div>
+    <div style="display:flex;flex-direction:column;gap:12px">
+      <button class="gg-btn" onclick="loginGoogle()">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M22.56 12.25c0-.78-.07-1.53-.2-2.25H12v4.26h5.92c-.26 1.37-1.04 2.53-2.21 3.31v2.77h3.57c2.08-1.92 3.28-4.74 3.28-8.09z" fill="#4285F4"/><path d="M12 23c2.97 0 5.46-.98 7.28-2.66l-3.57-2.77c-.98.66-2.23 1.06-3.71 1.06-2.86 0-5.29-1.93-6.16-4.53H2.18v2.84C3.99 20.53 7.7 23 12 23z" fill="#34A853"/><path d="M5.84 14.09c-.22-.66-.35-1.36-.35-2.09s.13-1.43.35-2.09V7.07H2.18C1.43 8.55 1 10.22 1 12s.43 3.45 1.18 4.93l3.66-2.84z" fill="#FBBC05"/><path d="M12 5.38c1.62 0 3.06.56 4.21 1.64l3.15-3.15C17.45 2.09 14.97 1 12 1 7.7 1 3.99 3.47 2.18 7.07l3.66 2.84c.87-2.6 3.3-4.53 6.16-4.53z" fill="#EA4335"/></svg>
+        Continuer avec Google
+      </button>
+      <div class="divider"><span>ou</span></div>
+      <button class="btn bp" onclick="show(1)">Continuer avec l'email</button>
+    </div>
+    <p class="foot">Déjà un compte ? <a href="connexion.html">Se connecter</a></p>
+  </div>
+
+  <!-- ÉTAPE 1 — Email -->
+  <div class="step" id="s1">
+    <h2 class="tit">Ton email</h2>
+    <p class="sub">On t'enverra un lien de confirmation.</p>
+    <div id="a1"></div>
+    <div class="fields">
+      <div class="fg2"><label class="lbl">Adresse email</label><input class="inp" type="email" id="email" placeholder="ton@email.fr"></div>
+      <div class="fg2"><label class="lbl">Mot de passe</label><input class="inp" type="password" id="pwd" placeholder="8 caractères minimum"></div>
+    </div>
+    <button class="btn bp" onclick="next1()">Continuer</button>
+    <button class="back" onclick="show(0)">← Retour</button>
+  </div>
+
+  <!-- ÉTAPE 2 — Profil -->
+  <div class="step" id="s2">
+    <h2 class="tit">Ton profil</h2>
+    <p class="sub">Pour personnaliser ton expérience.</p>
+    <div id="a2"></div>
+    <div class="fields">
+      <div class="fg2"><label class="lbl">Prénom</label><input class="inp" type="text" id="prenom" placeholder="Ton prénom"></div>
+      <div class="fg2"><label class="lbl">Âge</label><input class="inp" type="number" id="age" placeholder="Ton âge" min="10" max="99"></div>
+      <div class="fg2">
+        <label class="lbl">Tu as déjà codé ?</label>
+        <div class="rg"><label class="ro"><input type="radio" name="dc" value="oui"> Oui</label><label class="ro"><input type="radio" name="dc" value="non" checked> Non</label></div>
+      </div>
+      <div class="fg2">
+        <label class="lbl">Tu as codé avec l'IA ?</label>
+        <div class="rg"><label class="ro"><input type="radio" name="dia" value="oui"> Oui</label><label class="ro"><input type="radio" name="dia" value="non" checked> Non</label></div>
+      </div>
+    </div>
+    <button class="btn bp" onclick="next2()">Continuer</button>
+    <button class="back" onclick="show(1)">← Retour</button>
+  </div>
+
+  <!-- ÉTAPE 3 — Niveau -->
+  <div class="step" id="s3">
+    <h2 class="tit">Ton niveau</h2>
+    <p class="sub">Sois honnête — pas de jugement ici.</p>
+    <div class="lcards">
+      <button class="lcard" onclick="selLevel('debutant')" id="l-debutant"><span class="lem">🌱</span><div><strong>Débutant</strong><span>Je commence de zéro</span></div></button>
+      <button class="lcard" onclick="selLevel('junior')"   id="l-junior">  <span class="lem">⚡</span><div><strong>Junior</strong>  <span>Je connais les bases</span></div></button>
+      <button class="lcard" onclick="selLevel('senior')"   id="l-senior">  <span class="lem">🚀</span><div><strong>Senior</strong>  <span>J'ai de l'expérience</span></div></button>
+    </div>
+    <button class="btn bp" onclick="next3()" style="margin-top:20px">Continuer</button>
+    <button class="back" onclick="show(2)">← Retour</button>
+  </div>
+
+  <!-- ÉTAPE 4 — Objectif -->
+  <div class="step" id="s4">
+    <h2 class="tit">Ton objectif</h2>
+    <p class="sub">Devora adapte ton parcours selon ton choix.</p>
+    <div class="ocards">
+      <button class="ocard" onclick="selObj('frontend')"  id="o-frontend"> <strong>Frontend</strong> <span>Interfaces web — HTML, CSS, React</span></button>
+      <button class="ocard" onclick="selObj('backend')"   id="o-backend">  <strong>Backend</strong>  <span>Serveurs et données — Python, SQL</span></button>
+      <button class="ocard" onclick="selObj('fullstack')" id="o-fullstack"><strong>Fullstack</strong><span>Les deux — du frontend au backend</span></button>
+      <button class="ocard" onclick="selObj('autre')"     id="o-autre">    <strong>Libre</strong>    <span>Je choisis ce qui m'intéresse</span></button>
+    </div>
+    <button class="btn bp" id="btn-sub" onclick="submit()" style="margin-top:20px">Créer mon compte</button>
+    <button class="back" onclick="show(3)">← Retour</button>
+  </div>
+
+  <!-- SUCCÈS -->
+  <div class="step" id="s-ok">
+    <div class="sico">✓</div>
+    <h2 class="tit" style="text-align:center">Compte créé !</h2>
+    <p class="sub" style="text-align:center">Vérifie ton email pour confirmer ton compte, puis connecte-toi.</p>
+    <a href="connexion.html" class="btn bp" style="margin-top:20px;display:flex">Se connecter</a>
+  </div>
+</div>
+
+<script>
+// Init Supabase
+const { createClient } = supabase
+const db = createClient(
+  'https://vwkvumlgtwqatiixxleh.supabase.co',
+  'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZ3a3Z1bWxndHdxYXRpaXh4bGVoIiwicm9sZSI6ImFub24iLCJpYXQiOjE3NzUwNTY3MjcsImV4cCI6MjA5MDYzMjcyN30.Ux3WkEsAbliTdd0FrORduUVFWgIKqjtZBjzJQpRSQeE'
+)
+
+let level = '', obj = ''
+const TOTAL = 4
+const labels = ['','Étape 1 sur 4','Étape 2 sur 4','Étape 3 sur 4','Étape 4 sur 4']
+
+function show(n) {
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'))
+  const el = n === 'ok' ? document.getElementById('s-ok') : document.getElementById('s'+n)
+  if (el) el.classList.add('active')
+  if (typeof n === 'number') {
+    document.getElementById('pf').style.width = (n/TOTAL*100)+'%'
+    document.getElementById('pi').textContent = labels[n] || ''
+  }
+}
+
+function alert2(id, msg, type='e') {
+  const el = document.getElementById('a'+id)
+  if (el) el.innerHTML = `<div class="alert a${type}" style="margin-bottom:16px">${msg}</div>`
+}
+
+async function loginGoogle() {
+  const { error } = await db.auth.signInWithOAuth({
+    provider: 'google',
+    options: { redirectTo: location.origin + '/dashboard.html' }
+  })
+  if (error) alert2(0, error.message)
+}
+
+function next1() {
+  const email = document.getElementById('email').value.trim()
+  const pwd   = document.getElementById('pwd').value
+  if (!email || !email.includes('@')) return alert2(1, 'Adresse email invalide.')
+  if (pwd.length < 8) return alert2(1, 'Le mot de passe doit contenir au moins 8 caractères.')
+  document.getElementById('a1').innerHTML = ''
+  show(2)
+}
+
+function next2() {
+  const prenom = document.getElementById('prenom').value.trim()
+  if (!prenom) return alert2(2, 'Ton prénom est requis.')
+  document.getElementById('a2').innerHTML = ''
+  show(3)
+}
+
+function selLevel(l) {
+  level = l
+  document.querySelectorAll('.lcard').forEach(c => c.classList.remove('sel'))
+  document.getElementById('l-'+l).classList.add('sel')
+}
+
+function next3() {
+  if (!level) return
+  show(4)
+}
+
+function selObj(o) {
+  obj = o
+  document.querySelectorAll('.ocard').forEach(c => c.classList.remove('sel'))
+  document.getElementById('o-'+o).classList.add('sel')
+}
+
+async function submit() {
+  if (!obj) return
+  const btn = document.getElementById('btn-sub')
+  btn.textContent = 'Création en cours...'
+  btn.disabled = true
+
+  const email  = document.getElementById('email').value.trim()
+  const pwd    = document.getElementById('pwd').value
+  const prenom = document.getElementById('prenom').value.trim()
+  const age    = parseInt(document.getElementById('age').value) || null
+  const dc     = document.querySelector('input[name="dc"]:checked')?.value === 'oui'
+  const dia    = document.querySelector('input[name="dia"]:checked')?.value === 'oui'
+
+  const { data, error } = await db.auth.signUp({ email, password: pwd, options: { data: { prenom } } })
+
+  if (error) {
+    btn.textContent = 'Créer mon compte'
+    btn.disabled = false
+    return alert2(0, error.message)
+  }
+
+  if (data.user) {
+    await db.from('profiles').upsert({ id: data.user.id, email, prenom, age, deja_code: dc, deja_code_ia: dia, niveau: level, objectif: obj })
+  }
+
+  show('ok')
+}
+
+// Rediriger si déjà connecté
+db.auth.getUser().then(({ data }) => { if (data.user) location.href = 'dashboard.html' })
+</script>
+</body>
+</html>

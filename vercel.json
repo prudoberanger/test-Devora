@@ -1,0 +1,9 @@
+{
+  "rewrites": [
+    { "source": "/inscription",   "destination": "/inscription.html"   },
+    { "source": "/connexion",     "destination": "/connexion.html"     },
+    { "source": "/dashboard",     "destination": "/dashboard.html"     },
+    { "source": "/cours",         "destination": "/cours.html"         },
+    { "source": "/ia",            "destination": "/ia.html"            }
+  ]
+}
